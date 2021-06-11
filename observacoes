@@ -1,0 +1,57 @@
+TP2 - Implementação.
+
+
+
+Algumas notas sobre a implementação do TP2:
+
+
+
+A - No diagrama que eu enviei não estão explícitas as classes que são abstracas. Por isso vou indicar aqui as que são:
+
+
+
+Classes abstractas:
+
+1. EPass e suas sub-classes, EPassStandard, EPassSazonal
+
+
+Estas classes são abstractas porque não teremos objectos das mesmas. São somente para tipificar os passes.
+
+Para implementarem a classe EPass teremos então a seguinte declaração:
+
+
+
+public abstract class EPass {
+    private final long codigo;    
+    private double saldo;
+    private double precoViagem;
+    private final LocalDateTime emissao;
+    private LocalDate carregamento;
+    private LocalDate validade;
+    private static long ultCodigo;
+
+
+    <<<<retirado o resto do código ... >>>>>
+
+  B - Implememtação da sub-classe EpassStandard seria
+
+public abstract class EpassStandard extends EPass {
+    private Titular titular;
+    private int pontos;
+    private int numeroViagens;
+    private final Chave  chave;
+
+
+Obviamente aqui terão que implementar a classe Titular ... a classe Chave ...
+
+
+
+
+
+E só depois de implementar a super classe podemos então impleentar EpassStudent ...
+
+public class EpasseStudent extends EpassStandard {
+     private String escola;
+     private int anoFrequenta;
+     private int viagemFree;
+     private ArrayList<Zona> zonas;
